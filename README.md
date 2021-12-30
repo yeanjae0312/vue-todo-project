@@ -2,7 +2,7 @@
 
 - Vue를 사용해 TODO앱을 제작하고 리팩토링 하기
 
-## 목차
+## 순서
 
 - Vue.js로 구현하는 TodoApp
 - Vue.js를 위한 ES6
