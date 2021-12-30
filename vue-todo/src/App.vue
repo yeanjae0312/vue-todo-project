@@ -68,6 +68,9 @@ export default {
 
 <style>
   body {
+    min-width:300px;
+    max-width:500px;
+    margin:0 auto;
     text-align: center;
     background-color:#F6F6F6;
   }
