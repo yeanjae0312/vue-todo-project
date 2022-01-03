@@ -1,11 +1,18 @@
 <template>
   <div id="app">
-    <TodoHeader></TodoHeader>
+    <!-- <TodoHeader></TodoHeader> -->
     <!-- <TodoInput v-on:하위 컴포넌트에서 발생시킨 이벤트 이름="현재 컴포넌트의 메소드 명"></TodoInput> -->
-    <TodoInput v-on:addTodoItem="addOneItem"></TodoInput>
+    <!-- <TodoInput v-on:addTodoItem="addOneItem"></TodoInput> -->
     <!-- <TodoList v-bind:내려보낼 프롭스 이름="현재 컴포넌트에 쓰일 데이터 속성명"></TodoList> -->
-    <TodoList v-bind:propsdata="todoItems" v-on:removeItem="removeOneItem" v-on:toggleItem="toggleOneItem"></TodoList>
-    <TodoFooter v-on:clearAll="clearAllItems"></TodoFooter>
+    <!-- <TodoList v-bind:propsdata="todoItems" v-on:removeItem="removeOneItem" v-on:toggleItem="toggleOneItem"></TodoList> -->
+    <!-- <TodoFooter v-on:clearAll="clearAllItems"></TodoFooter> -->
+
+    <!-- vuex 사용 -->
+    <TodoHeader></TodoHeader>
+    <TodoInput></TodoInput>
+    <TodoList></TodoList>
+    <TodoFooter></TodoFooter>
+    
   </div>
 </template>
 
@@ -17,12 +24,14 @@ import TodoFooter from './components/TodoFooter'
 
 export default {
   data() {
-    return {
+    // vuex 사용으로 메서드 사용 X -> store.js로 옮겨감
+    /* return {
       todoItems: []
-    }
+    } */
   },
   methods: {
-    addOneItem(todoItem) {
+    // vuex 사용으로 메서드 사용 X -> store.js로 옮겨감
+    /* addOneItem(todoItem) {
       const obj = {completed: false, item: todoItem};
       localStorage.setItem(todoItem, JSON.stringify(obj));
       this.todoItems.push(obj);
@@ -43,10 +52,11 @@ export default {
     clearAllItems() {
       localStorage.clear();
       this.todoItems = [];
-    }
+    } */
   },
   // 인스턴스가 생성 되자마자 실행되는 lifecycle
-  created() {
+  // vuex사용으로 created() 사용 X -> store.js로 옮겨감
+  /* created() {
     if (localStorage.length > 0) {
       for (let i = 0; i < localStorage.length; i++) {
         if(localStorage.key(i) !== 'loglevel:webpack-dev-server') {
@@ -55,7 +65,7 @@ export default {
         }
       }
     }
-  },
+  }, */
   components: {
     // 컴포넌트 태그명 : 컴포넌트 내용
     /* 'TodoHeader' : TodoHeader,

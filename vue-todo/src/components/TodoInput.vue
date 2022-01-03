@@ -38,7 +38,8 @@ export default {
       // 저장하는 로직
       if(this.newTodoItem !== '') {
         // this.$emit('이벤트 이름', 인자1, 인자2, ...);
-        this.$emit('addTodoItem', this.newTodoItem);
+        // this.$emit('addTodoItem', this.newTodoItem);
+        this.$store.commit('addOneItem', this.newTodoItem); // vuex 뮤테이션 동작
 
         this.clearInput();
       } else {
