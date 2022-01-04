@@ -31,6 +31,11 @@ export default createStore({
   state: {
     todoItems: storage.fetch(),
   },
+  getters: { // helper함수 이용 - TodoList.vue
+    storedTodoItems(state) {
+      return state.todoItems;
+    }
+  },
   mutations: {
     addOneItem(state, todoItem) {
       const obj = {completed: false, item: todoItem};

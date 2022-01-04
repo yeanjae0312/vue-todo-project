@@ -5,12 +5,18 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
   methods: {
-    clearTodo() {
+    // helper함수 사용으로 인해 사용 x
+    /* clearTodo() {
       // this.$emit('clearAll');
       this.$store.commit('clearAllItems');
-    }
+    } */
+    ...mapMutations({
+      clearTodo: 'clearAllItems',
+    })
   }
 }
 </script>
