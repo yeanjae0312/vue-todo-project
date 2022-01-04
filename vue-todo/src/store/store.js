@@ -12,8 +12,15 @@ export const store = new Vuex.Store({
 
 // vue3
 import { createStore } from 'vuex'
+// 모듈화 방법 1
+// import * as getters from './getters'
+// import * as mutations from './mutations'
 
-const storage = {
+// 모듈화 방법 2
+import todoApp from './modules/todoApp'
+
+// 모듈화 방법 2로 인해 사용 x
+/* const storage = {
   fetch() {
     const arr = [];
     if (localStorage.length > 0) {
@@ -25,13 +32,24 @@ const storage = {
     }
     return arr;
   },
-}
+} */
 
 export default createStore({
-  state: {
+  modules: {
+    todoApp
+  }
+
+  // 모둘화 방법 2로 인해 사용 x
+  /* state: {
     todoItems: storage.fetch(),
-  },
-  getters: { // helper함수 이용 - TodoList.vue
+  }, */
+
+  // 모듈화 방법 1
+  /* getters, //getters: getters,
+  mutations //mutations: mutations */
+
+  // 모듈화 방법 1로 인해 파일별로 옮겨서 import함
+  /* getters: { // helper함수 이용 - TodoList.vue
     storedTodoItems(state) {
       return state.todoItems;
     }
@@ -58,7 +76,7 @@ export default createStore({
       localStorage.clear();
       state.todoItems = [];
     }
-  },
+  }, */
 });
 
 
