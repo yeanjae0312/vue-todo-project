@@ -18,17 +18,7 @@
 import { mapGetters, mapMutations } from 'vuex' // helper함수
 
 export default {
-  // props: ['propsdata'], // vuex 사용으로 props사용X
   methods: {
-    // helper함수 사용으로 인해 사용 x
-    /* removeTodo(todoItem, index) {
-      // this.$emit('removeItem', todoItem, index);
-      // this.$store.commit('removeOneItem', {todoItem, index}); // vuex
-    }, */
-    /* toggleComplete(todoItem, index) {
-      // this.$emit('toggleItem', todoItem, index);
-      // this.$store.commit('toggleOneItem', {todoItem, index}); // vuex
-    }, */
     ...mapMutations({
       removeTodo: 'removeOneItem', // 여기서 인자를 선언하지 않아도 template단에서 넘겨주면 받을 수 있다.
       toggleComplete: 'toggleOneItem'
@@ -36,14 +26,7 @@ export default {
     
   },
   computed: {
-    /* todoItems() {
-      return this.$store.getters.storedTodoItems;
-    } */
-
     ...mapGetters(['storedTodoItems'])
-    /* ...mapGetters({
-      todoItems: 'storedTodoItems', // v-for에 this.todoItems로 선언할 수 있음
-    }) */
   }
 }
 </script>

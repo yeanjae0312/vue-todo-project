@@ -7,10 +7,6 @@
 
     <transition name="modal">
       <Modal v-if="showModal" @close="showModal = false">
-        <!--
-          you can use custom content here to overwrite
-          default content
-        -->
         <template v-slot:header>
         <h3>경고! <i class="closeModalBtn fas fa-times" @click="showModal = false"></i></h3>
         </template>
@@ -37,8 +33,6 @@ export default {
     addTodo() {
       // 저장하는 로직
       if(this.newTodoItem !== '') {
-        // this.$emit('이벤트 이름', 인자1, 인자2, ...);
-        // this.$emit('addTodoItem', this.newTodoItem);
         this.$store.commit('addOneItem', this.newTodoItem); // vuex 뮤테이션 동작
 
         this.clearInput();
@@ -47,7 +41,6 @@ export default {
       }
     },
     clearInput() {
-      // input 비우는 동작
       this.newTodoItem = '';
     }
   },
